@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: XMLOutputter.c,v 1.2 2003/09/16 11:20:59 arms22 Exp $
+ * $Id: XMLOutputter.c,v 1.3 2004/02/13 12:28:35 arms22 Exp $
  */
 #include <stdio.h>
 #include "XMLOutputter.h"
@@ -41,7 +41,7 @@ static void XMLOutputter_printHeader(OutputterRef self)
 {
 	fprintf(stdout,"<?xml version=\"1.0\" encoding='shift_jis' standalone='yes' ?>\n");
 	if (stylesheet_)
-	fprintf(stdout,"<?xml-stylesheet　type=\"text/css\" href=\"%s\" ?>\n",stylesheet_);
+	fprintf(stdout,"<?xml-stylesheet type=\"text/xsl\" href=\"%s\" ?>\n",stylesheet_);
 	fprintf(stdout,"<TestRun>\n");
 }
 

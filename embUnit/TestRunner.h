@@ -30,19 +30,17 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: TestRunner.h,v 1.2 2003/09/16 11:20:59 arms22 Exp $
+ * $Id: TestRunner.h,v 1.3 2004/02/13 12:28:34 arms22 Exp $
  */
 #ifndef	__TESTRUNNER_H__
 #define	__TESTRUNNER_H__
-
-#include "Test.h"
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
 
 void TestRunner_start(void);
-void TestRunner_runTest(TestRef test);
+void TestRunner_runTest(Test* test);
 void TestRunner_end(void);
 
 #ifdef	__cplusplus

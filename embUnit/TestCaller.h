@@ -30,30 +30,30 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: TestCaller.h,v 1.2 2003/09/16 11:20:59 arms22 Exp $
+ * $Id: TestCaller.h,v 1.3 2004/02/13 12:28:34 arms22 Exp $
  */
 #ifndef	__TESTCALLER_H__
 #define	__TESTCALLER_H__
 
-#include "Test.h"
-
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
 typedef struct __TestFixture	TestFixture;
-typedef struct __TestFixture*	TestFixtureRef;
+typedef struct __TestFixture*	TestFixtureRef;/*downward compatible*/
 
 struct __TestFixture {
 	char *name;
 	void(*test)(void);
 };
 
+#define new_TestFixture(name,test)\
+	{\
+		name,\
+		test,\
+	}
+
 typedef struct __TestCaller		TestCaller;
-typedef struct __TestCaller*	TestCallerRef;
+typedef struct __TestCaller*	TestCallerRef;/*downward compatible*/
 
 struct __TestCaller {
-	TestImplementRef isa;
+	TestImplement* isa;
 	char *name;
 	void(*setUp)(void);
 	void(*tearDown)(void);
@@ -65,24 +65,12 @@ extern const TestImplement TestCallerImplement;
 
 #define new_TestCaller(name,sup,tdw,numberOfFixtuers,fixtuers)\
 	{\
-		(TestImplementRef)&TestCallerImplement,\
+		(TestImplement*)&TestCallerImplement,\
 		name,\
 		sup,\
 		tdw,\
 		numberOfFixtuers,\
 		fixtuers,\
 	}
-
-#define new_TestFixture(name,test)\
-	{\
-		name,\
-		test,\
-	}
-
-#define TestCallerTypeID MakeTestTypeID('c','a','l','l')
-
-#ifdef	__cplusplus
-}
-#endif
 
 #endif/*__TESTCALLER_H__*/

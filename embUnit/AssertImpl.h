@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: AssertImpl.h,v 1.3 2003/09/16 11:20:59 arms22 Exp $
+ * $Id: AssertImpl.h,v 1.4 2004/02/13 12:28:34 arms22 Exp $
  */
 #ifndef	__ASSERTIMPL_H__
 #define	__ASSERTIMPL_H__

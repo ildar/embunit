@@ -30,26 +30,28 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: TestRunner.c,v 1.2 2003/09/16 11:20:59 arms22 Exp $
+ * $Id: TestRunner.c,v 1.3 2004/02/13 12:28:34 arms22 Exp $
  */
 #include "config.h"
 #include "stdImpl.h"
+#include "Test.h"
+#include "TestListener.h"
 #include "TestResult.h"
 #include "TestRunner.h"
 
 static TestResult result_;
-static TestRef root_;
+static Test* root_;
 
-static void TestRunner_startTest(TestListnerRef self,TestRef test)
+static void TestRunner_startTest(TestListner* self,Test* test)
 {
 	stdimpl_print(".");
 }
 
-static void TestRunner_endTest(TestListnerRef self,TestRef test)
+static void TestRunner_endTest(TestListner* self,Test* test)
 {
 }
 
-static void TestRunner_addFailure(TestListnerRef self,TestRef test,char *msg,int line,char *file)
+static void TestRunner_addFailure(TestListner* self,Test* test,char* msg,int line,char* file)
 {
 	stdimpl_print("\n");
 	stdimpl_print(Test_name(root_));
@@ -75,15 +77,15 @@ static const TestListnerImplement TestRunnerImplement = {
 };
 
 static const TestListner testrunner_ = {
-	(TestListnerImplementRef)		&TestRunnerImplement,
+	(TestListnerImplement*)&TestRunnerImplement,
 };
 
 void TestRunner_start(void)
 {
-	TestResult_init(&result_, (TestListnerRef)&testrunner_);
+	TestResult_init(&result_, (TestListner*)&testrunner_);
 }
 
-void TestRunner_runTest(TestRef test)
+void TestRunner_runTest(Test* test)
 {
 	root_ = test;
 	Test_run(test, &result_);

@@ -30,41 +30,29 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: TestSuite.h,v 1.2 2003/09/16 11:20:59 arms22 Exp $
+ * $Id: TestSuite.h,v 1.3 2004/02/13 12:28:34 arms22 Exp $
  */
 #ifndef	__TESTSUITE_H__
 #define	__TESTSUITE_H__
 
-#include "Test.h"
-
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
 typedef struct __TestSuite	TestSuite;
-typedef struct __TestSuite*	TestSuiteRef;
+typedef struct __TestSuite*	TestSuiteRef;/*downward compatible*/
 
 struct __TestSuite {
-	TestImplementRef isa;
+	TestImplement* isa;
 	char *name;
 	int numberOfTests;
-	TestRef *tests;
+	Test** tests;
 };
 
 extern const TestImplement TestSuiteImplement;
 
 #define new_TestSuite(name,tests,numberOfTests)\
 	{\
-		(TestImplementRef)&TestSuiteImplement,\
+		(TestImplement*)&TestSuiteImplement,\
 		name,\
 		numberOfTests,\
 		tests,\
 	}
-
-#define TestSuiteTypeID MakeTestTypeID('s','u','i','t')
-
-#ifdef	__cplusplus
-}
-#endif
 
 #endif/*__TESTSUITE_H__*/

@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: TextUIRunner.c,v 1.2 2003/09/16 11:20:59 arms22 Exp $
+ * $Id: TextUIRunner.c,v 1.3 2004/02/13 12:28:35 arms22 Exp $
  */
 #include "TextOutputter.h"
 #include "TextUIRunner.h"
@@ -65,7 +65,7 @@ static const TestListnerImplement TextUIRunnerImplement = {
 };
 
 static const TestListner testuirunner_ = {
-	(TestListnerImplementRef)&TextUIRunnerImplement,
+	(TestListnerImplement*)&TextUIRunnerImplement,
 };
 
 /*	Public

@@ -30,13 +30,10 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: TestResult.h,v 1.2 2003/09/16 11:20:59 arms22 Exp $
+ * $Id: TestResult.h,v 1.3 2004/02/13 12:28:34 arms22 Exp $
  */
 #ifndef	__TESTRESULT_H__
 #define	__TESTRESULT_H__
-
-#include "Test.h"
-#include "TestListener.h"
 
 #ifdef	__cplusplus
 extern "C" {
@@ -45,24 +42,26 @@ extern "C" {
 /*typedef struct __TestResult		TestResult;*//* -> Test.h*/
 /*typedef struct __TestResult*		TestResultRef;*//* -> Test.h*/
 
+typedef struct __TestListner	TestListner;
+typedef struct __TestListner*	TestListnerRef;/*downward compatible*/
+
 struct __TestResult {
-	TestListnerImplementRef isa;
 	unsigned short runCount;
 	unsigned short failureCount;
-	TestListnerRef listener;
+	TestListner* listener;
 };
-
-void TestResult_init(TestResultRef self,TestListnerRef listner);
-
-extern const TestListnerImplement TestResultImplement;
 
 #define new_TestResult(listener)\
 	{\
-		(TestListnerImplementRef)&TestResultImplement,\
 		0,\
 		0,\
-		(TestListnerRef)listener,\
+		(TestListner*)listener,\
 	}
+
+void TestResult_init(TestResult* self,TestListner* listner);
+void TestResult_startTest(TestResult* self,Test* test);
+void TestResult_endTest(TestResult* self,Test* test);
+void TestResult_addFailure(TestResult* self,Test* test,const char* msg,int line,const char* file);
 
 #ifdef	__cplusplus
 }

@@ -30,15 +30,15 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: embUnit.h,v 1.3 2003/09/17 11:21:33 arms22 Exp $
+ * $Id: embUnit.h,v 1.4 2004/02/13 12:28:34 arms22 Exp $
  */
 #ifndef	__EMBUNIT_H__
 #define	__EMBUNIT_H__
 
 #include <embUnit/Test.h>
+#include <embUnit/TestCase.h>
 #include <embUnit/TestListener.h>
 #include <embUnit/TestResult.h>
-#include <embUnit/TestCase.h>
 #include <embUnit/TestSuite.h>
 #include <embUnit/TestRunner.h>
 #include <embUnit/TestCaller.h>

@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: config.h,v 1.3 2003/09/17 11:21:33 arms22 Exp $
+ * $Id: config.h,v 1.4 2004/02/13 12:28:34 arms22 Exp $
  */
 #ifndef __CONFIG_H__
 #define __CONFIG_H__
@@ -42,5 +42,7 @@
 		#include<stdio.h>
 		#define stdimpl_print printf
 	#endif
+
+	#define ASSERT_STRING_BUFFER_MAX	64
 
 #endif/*__CONFIG_H__*/

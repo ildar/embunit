@@ -30,22 +30,16 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: TestCase.h,v 1.2 2003/09/16 11:20:59 arms22 Exp $
+ * $Id: TestCase.h,v 1.3 2004/02/13 12:28:34 arms22 Exp $
  */
 #ifndef	__TESTCASE_H__
 #define	__TESTCASE_H__
 
-#include "Test.h"
-
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
 typedef struct __TestCase	TestCase;
-typedef struct __TestCase*	TestCaseRef;
+typedef struct __TestCase*	TestCaseRef;/*compatible embUnit1.0*/
 
 struct __TestCase {
-	TestImplementRef isa;
+	TestImplement* isa;
 	char *name;
 	void(*setUp)(void);
 	void(*tearDown)(void);
@@ -56,17 +50,11 @@ extern const TestImplement TestCaseImplement;
 
 #define new_TestCase(name,setUp,tearDown,runTest)\
 	{\
-		(TestImplementRef)&TestCaseImplement,\
+		(TestImplement*)&TestCaseImplement,\
 		name,\
 		setUp,\
 		tearDown,\
 		runTest,\
 	}
-
-#define TestCaseTypeID MakeTestTypeID('c','a','s','e')
-
-#ifdef	__cplusplus
-}
-#endif
 
 #endif/*__TESTCASE_H__*/
