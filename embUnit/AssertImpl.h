@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: AssertImpl.h,v 1.1 2003/09/09 12:57:16 arms22 Exp $
+ * $Id: AssertImpl.h,v 1.2 2003/09/10 11:31:58 arms22 Exp $
  */
 #ifndef	__ASSERTIMPL_H__
 #define	__ASSERTIMPL_H__
@@ -57,13 +57,13 @@ void assertImplementationCStr(const char* expected,const char* actual, long line
 	TEST_ASSERT_MESSAGE(pointer != NULL,#pointer " was null.")
 
 #define TEST_ASSERT_MESSAGE(condition, message)\
-	if (condition) {} else {TEST_FAIL(msg);}
+	if (condition) {} else {TEST_FAIL(message);}
 
 #define TEST_ASSERT(condition)\
 	if (condition) {} else {TEST_FAIL(#condition);}
 
 #define TEST_FAIL(message)\
-	if (0) {} else {addFailure(msg,__LINE__,__FILE__);return;}
+	if (0) {} else {addFailure(message,__LINE__,__FILE__);return;}
 
 #ifdef	__cplusplus
 }
