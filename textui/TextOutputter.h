@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: TextOutputter.h,v 1.1 2003/09/09 12:57:18 arms22 Exp $
+ * $Id: TextOutputter.h,v 1.1.1.1 2003/09/09 12:57:18 arms22 Exp $
  */
 #ifndef	__TEXTOUTPUTTER_H__
 #define	__TEXTOUTPUTTER_H__

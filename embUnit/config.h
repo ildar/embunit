@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: config.h,v 1.1 2003/09/09 12:57:16 arms22 Exp $
+ * $Id: config.h,v 1.1.1.1 2003/09/09 12:57:16 arms22 Exp $
  */
 #ifndef __CONFIG_H__
 #define __CONFIG_H__

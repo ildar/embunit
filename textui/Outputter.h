@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: Outputter.h,v 1.1 2003/09/09 12:57:18 arms22 Exp $
+ * $Id: Outputter.h,v 1.1.1.1 2003/09/09 12:57:18 arms22 Exp $
  */
 #ifndef	__OUTPUTTER_H__
 #define	__OUTPUTTER_H__

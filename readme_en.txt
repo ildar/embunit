@@ -83,4 +83,4 @@ System. Embedded Unit does not require std C libs.
 
 
 ------------------------------------------------------------------------------
-$Id: readme_en.txt,v 1.1 2003/09/09 12:57:16 arms22 Exp $
+$Id: readme_en.txt,v 1.1.1.1 2003/09/09 12:57:16 arms22 Exp $

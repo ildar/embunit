@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: CompilerOutputter.c,v 1.1 2003/09/09 12:57:17 arms22 Exp $
+ * $Id: CompilerOutputter.c,v 1.1.1.1 2003/09/09 12:57:17 arms22 Exp $
  */
 #include <stdio.h>
 #include "CompilerOutputter.h"

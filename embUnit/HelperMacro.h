@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: HelperMacro.h,v 1.1 2003/09/09 12:57:16 arms22 Exp $
+ * $Id: HelperMacro.h,v 1.1.1.1 2003/09/09 12:57:16 arms22 Exp $
  */
 #ifndef	__HELPERMACRO_H__
 #define	__HELPERMACRO_H__
