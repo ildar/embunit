@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: TestResult.h,v 1.1 2003/09/09 12:57:17 arms22 Exp $
+ * $Id: TestResult.h,v 1.2 2003/09/16 11:20:59 arms22 Exp $
  */
 #ifndef	__TESTRESULT_H__
 #define	__TESTRESULT_H__

@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: config.h,v 1.1 2003/09/09 12:57:16 arms22 Exp $
+ * $Id: config.h,v 1.2 2003/09/16 11:20:59 arms22 Exp $
  */
 #ifndef __CONFIG_H__
 #define __CONFIG_H__
@@ -41,7 +41,7 @@ extern "C" {
 
 /*	#define NO_STDIO_PRINTF*/
 	#ifdef	NO_STDIO_PRINTF
-		extern void stdimpl_print(const char* string);
+		extern void stdimpl_print(const char *string);
 	#else
 		#include<stdio.h>
 		#define stdimpl_print printf

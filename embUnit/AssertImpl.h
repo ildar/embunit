@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: AssertImpl.h,v 1.2 2003/09/10 11:31:58 arms22 Exp $
+ * $Id: AssertImpl.h,v 1.3 2003/09/16 11:20:59 arms22 Exp $
  */
 #ifndef	__ASSERTIMPL_H__
 #define	__ASSERTIMPL_H__
@@ -39,10 +39,10 @@
 extern "C" {
 #endif
 
-void addFailure(const char* msg, long line, const char* file);	/*TestCase.c*/
+void addFailure(const char *msg, long line, const char *file);	/*TestCase.c*/
 
-void assertImplementationInt(int expected,int actual, long line, const char* file);
-void assertImplementationCStr(const char* expected,const char* actual, long line, const char* file);
+void assertImplementationInt(int expected,int actual, long line, const char *file);
+void assertImplementationCStr(const char *expected,const char *actual, long line, const char *file);
 
 #define TEST_ASSERT_EQUAL_STRING(expected,actual)\
 	if (expected && actual && (stdimpl_strcmp(expected,actual)==0)) {} else {assertImplementationCStr(expected,actual,__LINE__,__FILE__);return;}

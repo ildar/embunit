@@ -30,12 +30,12 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: AssertImpl.c,v 1.1 2003/09/09 12:57:16 arms22 Exp $
+ * $Id: AssertImpl.c,v 1.2 2003/09/16 11:20:59 arms22 Exp $
  */
 #include "stdImpl.h"
 #include "AssertImpl.h"
 
-void assertImplementationInt(int expected,int actual, long line, const char* file)
+void assertImplementationInt(int expected,int actual, long line, const char *file)
 {
 	char buffer[36],*bp;
 
@@ -47,7 +47,7 @@ void assertImplementationInt(int expected,int actual, long line, const char* fil
 	addFailure(buffer, line, file);
 }
 
-void assertImplementationCStr(const char* expected,const char* actual, long line, const char* file)
+void assertImplementationCStr(const char *expected,const char *actual, long line, const char *file)
 {
 	char buffer[64],*bp;
 	int el,al;

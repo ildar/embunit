@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: TextUIRunner.h,v 1.1 2003/09/09 12:57:18 arms22 Exp $
+ * $Id: TextUIRunner.h,v 1.2 2003/09/16 11:20:59 arms22 Exp $
  */
 #ifndef	__TEXTUIRUNNER_H__
 #define	__TEXTUIRUNNER_H__

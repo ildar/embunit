@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: TestCaller.c,v 1.1 2003/09/09 12:57:17 arms22 Exp $
+ * $Id: TestCaller.c,v 1.2 2003/09/16 11:20:59 arms22 Exp $
  */
 #include "TestCase.h"
 #include "TestResult.h"
