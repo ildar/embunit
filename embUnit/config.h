@@ -30,14 +30,10 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: config.h,v 1.2 2003/09/16 11:20:59 arms22 Exp $
+ * $Id: config.h,v 1.3 2003/09/17 11:21:33 arms22 Exp $
  */
 #ifndef __CONFIG_H__
 #define __CONFIG_H__
-
-#ifdef	__cplusplus
-extern "C" {
-#endif
 
 /*	#define NO_STDIO_PRINTF*/
 	#ifdef	NO_STDIO_PRINTF
@@ -46,9 +42,5 @@ extern "C" {
 		#include<stdio.h>
 		#define stdimpl_print printf
 	#endif
-
-#ifdef	__cplusplus
-}
-#endif
 
 #endif/*__CONFIG_H__*/
