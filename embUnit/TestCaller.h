@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: TestCaller.h,v 1.3 2004/02/13 12:28:34 arms22 Exp $
+ * $Id: TestCaller.h,v 1.4 2005/12/28 19:51:04 mat_the_green Exp $
  */
 #ifndef	__TESTCALLER_H__
 #define	__TESTCALLER_H__
@@ -63,14 +63,12 @@ struct __TestCaller {
 
 extern const TestImplement TestCallerImplement;
 
-#define new_TestCaller(name,sup,tdw,numberOfFixtuers,fixtuers)\
-	{\
-		(TestImplement*)&TestCallerImplement,\
-		name,\
-		sup,\
-		tdw,\
-		numberOfFixtuers,\
-		fixtuers,\
-	}
+#define new_TestCaller(caller,nm,sup,tdw,NoFixtures,fixtures) \
+caller->isa = (TestImplement*)&TestCallerImplement; \
+caller->name = nm; \
+caller->setUp = sup; \
+caller->tearDown = tdw; \
+caller->numberOfFixtuers = NoFixtures; \
+caller->fixtuers = (TestFixture*)fixtures
 
 #endif/*__TESTCALLER_H__*/

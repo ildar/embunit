@@ -30,7 +30,7 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: HelperMacro.h,v 1.3 2004/02/13 12:28:34 arms22 Exp $
+ * $Id: HelperMacro.h,v 1.4 2005/12/28 19:51:04 mat_the_green Exp $
  */
 #ifndef	__HELPERMACRO_H__
 #define	__HELPERMACRO_H__
@@ -48,7 +48,7 @@
 				(Test*)	testref
 
 #define EMB_UNIT_TESTCALLER(caller,name,sup,tdw,fixtures) \
-	static const TestCaller caller = new_TestCaller(name,sup,tdw,sizeof(fixtures)/sizeof(fixtures[0]),(TestFixture*)fixtures)
+	new_TestCaller(caller,name,sup,tdw,sizeof(fixtures)/sizeof(fixtures[0]),fixtures)
 
 #define EMB_UNIT_TESTFIXTURES(fixtures) \
 	static const TestFixture	fixtures[] = 

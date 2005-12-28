@@ -30,11 +30,13 @@
  * use or other dealings in this Software without prior written 
  * authorization of the copyright holder.
  *
- * $Id: TestCaller.c,v 1.3 2004/02/13 12:28:34 arms22 Exp $
+ * $Id: TestCaller.c,v 1.4 2005/12/28 19:51:04 mat_the_green Exp $
  */
 #include "Test.h"
 #include "TestCase.h"
 #include "TestCaller.h"
+
+TestCase emptyTestCase = {(TestImplement*)&TestCaseImplement,0,0,0,0};
 
 char* TestCaller_name(TestCaller* self)
 {
@@ -43,15 +45,17 @@ char* TestCaller_name(TestCaller* self)
 
 void TestCaller_run(TestCaller* self,TestResult* result)
 {
-	TestCase cs = new_TestCase(0,0,0,0);
+	TestCase *cs = &emptyTestCase; /* Change to overcome "undefined reference to `memcpy'" on line 48 in OpenTv environment */
 	int i;
-	cs.setUp= self->setUp;
-	cs.tearDown	= self->tearDown;
-	for (i=0; i<self->numberOfFixtuers; i++) {
-		cs.name	= self->fixtuers[i].name;
-		cs.runTest	= self->fixtuers[i].test;
+	
+	cs->setUp = self->setUp;
+	cs->tearDown	= self->tearDown;
+	for (i=0; i<self->numberOfFixtuers; i++)
+	{
+		cs->name	= self->fixtuers[i].name;
+		cs->runTest	= self->fixtuers[i].test;
 		/*run test*/
-		Test_run(&cs,result);
+		Test_run(cs,result);
 	}
 }
 
