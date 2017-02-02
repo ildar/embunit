@@ -62,7 +62,7 @@ static void teststrcmp(void)
 
 static void testitoa(void)
 {
-	char buf[33];
+	char buf[65];
 	char *p;
 
 	p = stdimpl_itoa(10, buf, 2);

@@ -111,7 +111,7 @@ int stdimpl_strcmp(const char *s1, const char *s2)
 static char* _xtoa(unsigned long v,char *string, int r, int is_neg)
 {
 	char *start = string;
-	char buf[33],*p;
+	char buf[65],*p;
 
 	p = buf;
 
