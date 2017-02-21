@@ -43,12 +43,17 @@ void addFailure(const char *msg, long line, const char *file);	/*TestCase.c*/
 
 void assertImplementationInt(int expected,int actual, long line, const char *file);
 void assertImplementationCStr(const char *expected,const char *actual, long line, const char *file);
+void assertImplementationRangeInt(int minvalue, int maxvalue, int value, long line, const char *file); 
 
 #define TEST_ASSERT_EQUAL_STRING(expected,actual)\
 	if (expected && actual && (stdimpl_strcmp(expected,actual)==0)) {} else {assertImplementationCStr(expected,actual,__LINE__,__FILE__);return;}
 
 #define TEST_ASSERT_EQUAL_INT(expected,actual)\
 	if (expected == actual) {} else {assertImplementationInt(expected,actual,__LINE__,__FILE__);return;}
+
+#define TEST_ASSERT_RANGE_INT(minvalue, maxvalue, actualvalue)\
+	if ((minvalue <= actualvalue) && (maxvalue >= actualvalue)) {} else {assertImplementationRangeInt(minvalue, maxvalue, actualvalue, __LINE__, __FILE__);return;}
+//	{assertImplementationRangeInt(minvalue, maxvalue, actualvalue, __LINE__, __FILE__);return;}
 
 #define TEST_ASSERT_NULL(pointer)\
 	TEST_ASSERT_MESSAGE(pointer == NULL,#pointer " was not null.")

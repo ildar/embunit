@@ -29,6 +29,13 @@ static void assert_equal_int_runTest(void)
 	TEST_ASSERT_EQUAL_INT(123,456);
 }
 
+static void assert_range_int_runTest(void)
+{
+	TEST_ASSERT_RANGE_INT(-1,5,2);
+	//TEST_ASSERT_RANGE_INT(-1,5,-2);
+	TEST_ASSERT_RANGE_INT(-1,5,6);
+}
+
 static void assert_null_runTest(void)
 {
 	char *p="";
@@ -49,6 +56,12 @@ static void assert_message_runTest(void)
 static void assert_runTest(void)
 {
 	TEST_ASSERT(0);
+}
+
+static void testASSERT_RANGE_INT(void)
+{
+	TestCase tcase = new_TestCase("assert_range_int",NULL,NULL,assert_range_int_runTest);
+	verify(&tcase);
 }
 
 static void testASSERT_EQUAL_STRING(void)
@@ -90,6 +103,7 @@ static void testASSERT(void)
 TestRef assertTest_tests( TestCaller *test )
 {
 	EMB_UNIT_TESTFIXTURES(fixtures) {
+		new_TestFixture("testASSERT_RANGE_INT", testASSERT_RANGE_INT),
 		new_TestFixture("testASSERT_EQUAL_STRING",testASSERT_EQUAL_STRING),
 		new_TestFixture("testASSERT_EQUAL_INT",testASSERT_EQUAL_INT),
 		new_TestFixture("testASSERT_NULL",testASSERT_NULL),

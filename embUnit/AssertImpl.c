@@ -53,6 +53,30 @@ void assertImplementationInt(int expected,int actual, long line, const char *fil
 
 	addFailure(buffer, line, file);
 }
+void except_string(const char *pre, const char* gch, int val1, int val2, char *result ) 
+{
+	char numbuf[12]; /*32bit int decimal maximum column is 11 (-2147483647~2147483647)*/
+
+	stdimpl_strcat(result, pre);
+	stdimpl_itoa(val1, numbuf, 10);
+	stdimpl_strcat(result, numbuf);
+	stdimpl_strcat(result, gch);
+	stdimpl_itoa(val2, numbuf, 10);
+	stdimpl_strcat(result, numbuf);
+
+}
+void assertImplementationRangeInt(int minvalue, int maxvalue, int value, long line, const char *file) 
+{
+	char buffer[32]; /*"exp -2147483647 was -2147483647"*/
+
+	if (minvalue > value) {
+		except_string(" (min > value) = ", " > ", minvalue, value, buffer);
+	}
+	if (maxvalue < value) {
+		except_string(" (max < value) = ", " < ", maxvalue, value, buffer);
+	}
+	addFailure(buffer, line, file);
+}
 
 void assertImplementationCStr(const char *expected,const char *actual, long line, const char *file)
 {
