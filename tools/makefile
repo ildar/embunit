@@ -1,22 +1,24 @@
 CC = gcc
-CFLAGS = -O
+CFLAGS = -g
+LDFLAGS = -L../lib
 # final / removed for windows environment
-INCLUDE =-I./tbcuppa
-RM = rm
+INCLUDES = -I./tbcuppa
+LIBS = 
+RM = rm -f
 
 all: bcuppa tcuppa buma tuma
 
 bcuppa:./tbcuppa/bcuppa.c ./tbcuppa/strvec.c
-	$(CC) -o $@ $(INCLUDE) ./tbcuppa/bcuppa.c ./tbcuppa/strvec.c
+	$(CC) -o $@ $(CFLAGS) $(INCLUDES) $(LDFLAGS) ./tbcuppa/bcuppa.c ./tbcuppa/strvec.c $(LIBS)
 
 tcuppa:./tbcuppa/tcuppa.c ./tbcuppa/strvec.c
-	$(CC) -o $@ $(INCLUDE) ./tbcuppa/tcuppa.c ./tbcuppa/strvec.c
+	$(CC) -o $@ $(CFLAGS) $(INCLUDES) $(LDFLAGS) ./tbcuppa/tcuppa.c ./tbcuppa/strvec.c $(LIBS)
 
 buma:./tbuma/buma.c ./tbcuppa/strvec.c
-	$(CC) -o $@ $(INCLUDE) ./tbuma/buma.c ./tbcuppa/strvec.c
+	$(CC) -o $@ $(CFLAGS) $(INCLUDES) $(LDFLAGS) ./tbuma/buma.c ./tbcuppa/strvec.c $(LIBS)
 	
 tuma:./tbuma/tuma.c ./tbcuppa/strvec.c
-	$(CC) -o $@ $(INCLUDE) ./tbuma/tuma.c ./tbcuppa/strvec.c
+	$(CC) -o $@ $(CFLAGS) $(INCLUDES) $(LDFLAGS) ./tbuma/tuma.c ./tbcuppa/strvec.c $(LIBS)
 
 clean:
 	$(RM) bcuppa tcuppa buma tuma *.exe

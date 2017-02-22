@@ -1,9 +1,9 @@
 CC = gcc
-CFLAGS = -O
+CFLAGS = -g
 AR = ar
 ARFLAGS = ru
 RANLIB = ranlib
-RM = rm
+RM = rm -f
 OUTPUT = ../lib/
 TARGET = libembUnit.a
 OBJS = AssertImpl.o RepeatedTest.o stdImpl.o TestCaller.o TestCase.o TestResult.o TestRunner.o TestSuite.o

@@ -1,18 +1,19 @@
 CC = gcc
-CFLAGS = -O
-INCLUDES = ..
-LIBS = ../lib
-RM = rm
+CFLAGS = -g
+LDFLAGS = -L../lib
+INCLUDES = -I..
+LIBS = 
+RM = rm -f
 TARGET = samples
 OBJS = AllTests.o counter.o counterTest.o person.o personTest.o
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) -o $@ $(OBJS) -L$(LIBS) -lembUnit
+	$(CC) $(LDFLAGS) -o $@ $(OBJS) -lembUnit $(LIBS)
 
 .c.o:
-	$(CC) $(CFLAGS) -I$(INCLUDES) -c $<
+	$(CC) $(CFLAGS) $(INCLUDES) -c $<
 
 clean:
 	-$(RM) $(TARGET) $(OBJS)
